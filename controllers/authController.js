@@ -138,18 +138,18 @@ exports.signin = async (req, res) => {
         if (user && user.length > 0) {
             const isValidPassword = await bcrypt.compare(req.body.password, user[0].password);
             if (isValidPassword) {
-                const token = jwt.sign(
-                    {
-                        firstName: user[0].firstName,
-                        userId: user[0]._id,
-                    },
-                    process.env.JWT_SECRET,
-                    {
-                        expiresIn: '10d',
-                    }
-                );
+                // const token = jwt.sign(
+                //     {
+                //         firstName: user[0].firstName,
+                //         userId: user[0]._id,
+                //     },
+                //     process.env.JWT_SECRET,
+                //     {
+                //         expiresIn: '10d',
+                //     }
+                // );
                 res.status(200).json({
-                    access_token: token,
+                    // access_token: token,
                     message: 'login successfully',
                     data: user[0]
                 });
